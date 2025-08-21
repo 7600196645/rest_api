@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Latest Tweets</title>
+</head>
+<body>
+    <h1>Latest Tweets from @{{ username }}</h1>
+    <ul>
+        {% for tweet in tweets %}
+            <li>{{ tweet.created_at }} - {{ tweet.text }}</li>
+        {% empty %}
+            <li>No tweets found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

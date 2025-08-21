@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Country Info</title>
+</head>
+<body>
+    <h1>Country Information Lookup</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+    
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    {% if country_info %}
+        <h2>Results for {{ country_info.name }}</h2>
+        <ul>
+            <li><strong>Population:</strong> {{ country_info.population }}</li>
+            <li><strong>Languages:</strong> {{ country_info.languages }}</li>
+            <li><strong>Currency:</strong> {{ country_info.currency }}</li>
+        </ul>
+    {% endif %}
+</body>
+</html>
